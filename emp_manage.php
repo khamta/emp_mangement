@@ -62,7 +62,7 @@ include_once 'login_check.php';
                         <td class="text-center" style="width: 100px;">
                             <a href="#" onclick="viewdata(<?php echo '\'' . $row['emp_ID'] . '\''; ?>)" data-bs-toggle="tooltip" data-bs-placement="left" title="ກວດສອບຂໍ້ມູນ"><i class="fas fa-eye"></i></a>
                             <a href="emp_edit.php?emp_ID=<?= $row['emp_ID'] ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="ແກ້ໄຂ"><i class="fas fa-edit"></i></a>
-                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" title="ລືບຂໍ້ມູນ"><i class="fas fa-trash-alt text-danger"></i></a>
+                            <a href="#" onclick="deletedata(<?php echo '\'' . $row['emp_ID'] . '\''; ?>)" data-bs-toggle="tooltip" data-bs-placement="left" title="ລືບຂໍ້ມູນ"><i class="fas fa-trash-alt text-danger"></i></a>
                         </td>
 
                     </tr>
@@ -120,6 +120,48 @@ include_once 'login_check.php';
                 $('#myModal').modal("show");
             }
         });
+    };
+      //ສ້າງຟັງຊັນແຈ້ງເຕືອນລືບຂໍ້ມູນ
+      function deletedata(id) {
+        swal({
+                title: "ເຈົ້າຕ້ອງການລືບແທ້ ຫຼື ບໍ່?",
+                text: "ຂໍ້ມູນລະຫັດ " + id + ", ເມື່ອລືບຈະບໍ່ສາມາດກູ້ຂໍ້ມູນຄືນໄດ້!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ['ຍົກເລີກ', 'ຕົກລົງ']
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "emp_delete.php",
+                        method: "post",
+                        data: {
+                            empno: id
+                        },
+                        success: function(data) {
+                            if (data) {
+                                //alert(data); //ເພື່ອກວດສອບຂໍ້ຜິດພາດເວລາທົດສອບ
+                                swal("ຜິດພາດ", "ບໍ່ສາມາດລືບຂໍ້ມູນນີ້ໄດ້ ເນື່ອງຈາກມີພະນັກງານສັງກັດໃນພະແນກນີ້ຢູ່!", "error", {
+                                    button: "ຕົກລົງ",
+                                });
+                            } else {
+                                swal("ສໍາເລັດ", "ຂໍ້ມູນຖືກລືບອອກຈາກຖານຂໍ້ມູນແລ້ວ", "success", {
+                                    button: "ຕົກລົງ",
+                                });
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000); //2000 = 2ວິນາທີ
+                            }
+                        }
+                    });
+
+                } else {
+                    swal("ຂໍ້ມູນຂອງທ່ານຍັງປອດໄພ!", {
+                        button: "ຕົກລົງ",
+                    });
+                }
+            });
     }
 
 </script>

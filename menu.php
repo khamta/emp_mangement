@@ -22,7 +22,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-file-alt"></i> ລາຍງານ</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">ລາຍງານຂໍ້ມູນພະນັກງານ</a></li>
+            <li><a class="dropdown-item" href="emp_report.php">ລາຍງານຂໍ້ມູນພະນັກງານ</a></li>
             <li><a class="dropdown-item" href="#">ລາຍງານຂໍ້ມູນພະແນກ</a></li>
             <li><a class="dropdown-item" href="#">ລາຍງານຂໍ້ມູນຂັ້ນເງິນເດືອນ</a></li>
           </ul>
