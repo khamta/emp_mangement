@@ -1,5 +1,12 @@
 <?php
-include_once 'login_check.php'
+include_once 'login_check.php';
+$department = "";
+$where = "";
+if (isset($_GET['department'])) {
+    $department = $_GET['department'];
+    $where = empty($department) ? " " : "where d.d_ID = '$department'";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +36,26 @@ include_once 'login_check.php'
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>ລາຍງານຂໍ້ມູນພະນັກງານ</strong>
         </div>
-        
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="get">
+            <div class="row">
+                <div class="col-md-2 offset-md-2 text-end">ເລືອກພິມລາຍງານພະແນກ</div>
+                <div class="col-md-4">
+                    <select class="form-select" name="department" onchange="form.submit()">
+                        <option value="">-----ເລືອກພະແນກ-----</option>
+                        <?php
+                        $sql = "SELECT d_ID, name from dept ORDER BY name ASC";
+                        $result = mysqli_query($link, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <option value="<?= $row["d_ID"] ?>" <?php if ($row["d_ID"] == $department) 
+                            echo 'selected' ?>><?= $row["name"] ?></option>';
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 
