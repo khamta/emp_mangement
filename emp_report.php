@@ -47,8 +47,8 @@ if (isset($_GET['department'])) {
                         $result = mysqli_query($link, $sql);
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <option value="<?= $row["d_ID"] ?>" <?php if ($row["d_ID"] == $department) 
-                            echo 'selected' ?>><?= $row["name"] ?></option>';
+                            <option value="<?= $row["d_ID"] ?>" <?php if ($row["d_ID"] == $department)
+                                                                    echo 'selected' ?>><?= $row["name"] ?></option>';
                         <?php
                         }
                         ?>
@@ -56,6 +56,44 @@ if (isset($_GET['department'])) {
                 </div>
             </div>
         </form>
+        <p class="d-flex justify-content-end">
+            <a href="emp_report_print.php?department=<?= $department ?>" class="btn btn-info" target="_blank"><i class="fas fa-print"></i>&nbsp;ພິມລາຍງານ</a>
+            &nbsp;
+            &nbsp;
+            <a href="emp_export_excel.php?department=<?= $department ?>" class="btn btn-success" target="_blank"><i class="fas fa-file-excel"></i>&nbsp;ແປງເປັນ Excel</a>
+        </p>
+        <table class="table table-hover table-bordered w-100">
+            <thead class="bg-dark text-white text-center">
+                <tr>
+                    <th>ລະຫັດ</th>
+                    <th>ຊື່ ແລະ ນາມສະກຸນ</th>
+                    <th>ເພດ</th>
+                    <th>ເງິນເດືອນ</th>
+                    <th>ເງິນອຸດໜູນ</th>
+                    <th>ລາຍຮັບ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $department = "";
+                $sum = 0;
+                $sql = "SELECT e.emp_ID, e.emp_name, e.gender, d.name AS department, s.salary, e.incentive, s.salary+e.incentive AS total "
+                    . " FROM emp e JOIN dept d ON e.d_ID = d.d_ID JOIN salary s ON e.grade = s.grade $where ORDER BY department ASC, total DESC";
+                $result = mysqli_query($link, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    //ສະແດງຊື່ຂອງພະແນກ ແລະ ຜົນບວກທັງໝົດເງິນເດືອນ ບວກ ເງິນອຸດອຸດໝູນ ຂອງພະແນກນັ້້ນ
+                    if (strcmp($department, $row['department']) !== 0) {
+                        $department = $row['department'];
+                        $sql1 = "SELECT sum(s.salary+e.incentive) FROM emp e JOIN dept d ON e.d_ID=d.d_ID JOIN salary s ON e.grade=s.grade "
+                            . " WHERE d.name='$department'";
+                        $result1 = mysqli_query($link, $sql1);
+                        $row1 = mysqli_fetch_array($result1);
+                    }
+                }
+                ?>
+                        
+            </tbody>
+        </table>
     </div>
 </body>
 
