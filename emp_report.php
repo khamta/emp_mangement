@@ -89,6 +89,16 @@ if (isset($_GET['department'])) {
                         $result1 = mysqli_query($link, $sql1);
                         $row1 = mysqli_fetch_array($result1);
                     }
+                    ?>
+                    <tr>
+                        <td><?php echo $row['emp_ID'];?></td>
+                        <td><?php echo $row['emp_name'];?></td>
+                        <td><?php echo $row['gender'];?></td>
+                        <td><?php echo number_format($row['salary']);?></td>
+                        <td><?php echo number_format($row['incentive']);?></td>
+                        <td><?php echo number_format($row['total']);?></td>
+                    </tr>
+                    <?php
                 }
                 ?>
                         
