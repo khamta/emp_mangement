@@ -106,7 +106,7 @@ if (isset($_GET['department'])) {
                 <tr>
                     <td colspan="5" class="fw-bold bg-secondary text-white">ລວມທັງໝົດ:&nbsp;&nbsp;<?= LakLao($sum)?></td>
                     <td class="fw-bold bg-secondary text-white text-end"><?= number_format($sum)?></td>
-                    5555555555555
+                    
                 </tr>        
             </tbody>
         </table>
