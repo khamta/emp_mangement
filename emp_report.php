@@ -1,5 +1,6 @@
 <?php
 include_once 'login_check.php';
+include_once 'Laokip_read.php';
 $department = "";
 $where = "";
 if (isset($_GET['department'])) {
@@ -91,17 +92,21 @@ if (isset($_GET['department'])) {
                     }
                     ?>
                     <tr>
-                        <td><?php echo $row['emp_ID'];?></td>
+                        <td class="text-center"><?php echo $row['emp_ID'];?></td>
                         <td><?php echo $row['emp_name'];?></td>
-                        <td><?php echo $row['gender'];?></td>
-                        <td><?php echo number_format($row['salary']);?></td>
-                        <td><?php echo number_format($row['incentive']);?></td>
-                        <td><?php echo number_format($row['total']);?></td>
+                        <td class="text-center"><?php echo $row['gender'];?></td>
+                        <td class="text-end"><?php echo number_format($row['salary']);?></td>
+                        <td  class="text-end"><?php echo number_format($row['incentive']);?></td>
+                        <td  class="text-end"><?php echo number_format($row['total']);?></td>
                     </tr>
                     <?php
+                    $sum += $row['total'];
                 }
                 ?>
-                        
+                <tr>
+                    <td colspan="5" class="fw-bold bg-secondary text-white">ລວມທັງໝົດ:&nbsp;&nbsp;<?= LakLao($sum)?></td>
+                    <td class="fw-bold bg-secondary text-white text-end"><?= number_format($sum)?></td>
+                </tr>        
             </tbody>
         </table>
     </div>
