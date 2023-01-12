@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `emp_manage`
 --
-
+CREATE Database emp_manage;
 -- --------------------------------------------------------
 
 --
