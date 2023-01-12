@@ -64,7 +64,7 @@ if (isset($_GET['department'])) {
             <a href="emp_export_excel.php?department=<?= $department ?>" class="btn btn-success" target="_blank"><i class="fas fa-file-excel"></i>&nbsp;ແປງເປັນ Excel</a>
         </p>
         <table class="table table-hover table-bordered w-100">
-            <thead class="bg-dark text-white text-center">
+            <thead class="bg-dark text-black text-center">
                 <tr>
                     <th>ລະຫັດ</th>
                     <th>ຊື່ ແລະ ນາມສະກຸນ</th>
@@ -121,3 +121,9 @@ if (isset($_GET['department'])) {
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+        window.onafterprint = window.close;
+        window.print();
+    });
+</script>

@@ -25,9 +25,12 @@ if (empty($error_username) && empty($error_password)){
     $sql = "INSERT INTO user VALUES('', '$name', '$phone', '$username', '$password')";
    $result = mysqli_query($link, $sql);
     if($result){
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        header("location: pofile.php");
+        $message = "<script>swal('ສຳເລັດ','ລົງທະບຽນສຳເລັດ','success',{button: 'ຕົກລົງ'});</script>";
+        $name = "";
+        $phone = "";
+        $username = "";
+        $password = "";
+        $con_password = "";
     }else{
             //echo mysqli_error($link);
     }
@@ -47,9 +50,12 @@ if (empty($error_username) && empty($error_password)){
     <link rel="stylesheet" href="myCSS/style.css">
 <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
 </head>
 <body>
-    <?php include_once 'menu.php'; ?>
+    <?php include_once 'menu.php'; 
+    echo @$message;
+    ?>
     <div class="container-fluid mt-3">
     <div class="row">
     <div class="col-md-6 offset-md-3">
