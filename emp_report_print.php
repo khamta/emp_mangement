@@ -30,39 +30,26 @@ if (isset($_GET['department'])) {
 </head>
 
 <body>
-    <?php include_once 'menu.php'; ?>
-
     <div class="container-fluid mt-3">
-        <div class="alert alert-success alert-dismissible text-center">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>ລາຍງານຂໍ້ມູນພະນັກງານ</strong>
+        <div class="text-center">
+            <img src="image/123.jpg" width="100px" alt="ຮູບກາຊາດ"><br>
+            ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ<br>
+            ສັນຕິພາບ ເອກະລາດ ປະຊາທິປະໄຕ ເອກະພາບ ວັດທະນະຖາວອນ
+            <p>----------<?php for($i=0 ; $i<= 5 ; $i++) echo '<i class="far fa-star"></i>';?>----------</p>
+
         </div>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="get">
-            <div class="row">
-                <div class="col-md-2 offset-md-2 text-end">ເລືອກພິມລາຍງານພະແນກ</div>
-                <div class="col-md-4">
-                    <select class="form-select" name="department" onchange="form.submit()">
-                        <option value="">-----ເລືອກພະແນກ-----</option>
-                        <?php
-                        $sql = "SELECT d_ID, name from dept ORDER BY name ASC";
-                        $result = mysqli_query($link, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                            <option value="<?= $row["d_ID"] ?>" <?php if ($row["d_ID"] == $department)
-                                                                    echo 'selected' ?>><?= $row["name"] ?></option>';
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
+        <div class="row">
+            <div class="col-6">
+                ຊື່ບໍລິສັດ:.................<br>
+                ທີ່ຢູ່:....................<br>
+                ເບີໂທ:..................<br>
             </div>
-        </form>
-        <p class="d-flex justify-content-end">
-            <a href="emp_report_print.php?department=<?= $department ?>" class="btn btn-info" target="_blank"><i class="fas fa-print"></i>&nbsp;ພິມລາຍງານ</a>
-            &nbsp;
-            &nbsp;
-            <a href="emp_export_excel.php?department=<?= $department ?>" class="btn btn-success" target="_blank"><i class="fas fa-file-excel"></i>&nbsp;ແປງເປັນ Excel</a>
-        </p>
+            <div class="col-6 text-end">
+                ເລກທີ:.......................<br>
+                ທີ່......................, ວັນທີ່...............<br>
+            </div>
+        </div>
+        <p class="text-center fw-bold h5">ລາຍງານຂໍ້ມູນພະນັກງານ</p>
         <table class="table table-hover table-bordered w-100">
             <thead class="bg-dark text-black text-center">
                 <tr>
@@ -111,7 +98,7 @@ if (isset($_GET['department'])) {
                 }
                 ?>
                 <tr>
-                    
+
                     <td colspan="5" class="fw-bold bg-secondary text-white">ລວມທັງໝົດ:&nbsp;&nbsp;<?= LakLao($sum) ?></td>
                     <td class="fw-bold bg-secondary text-white text-end"><?= number_format($sum) ?></td>
 
