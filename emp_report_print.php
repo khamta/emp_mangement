@@ -109,8 +109,8 @@ if (isset($_GET['department'])) {
                 ?>
                 <tr>
 
-                    <td colspan="5" class="fw-bold bg-secondary text-white">ລວມທັງໝົດ:&nbsp;&nbsp;<?= LakLao($sum) ?></td>
-                    <td class="fw-bold bg-secondary text-white text-end"><?= number_format($sum) ?></td>
+                    <td colspan="5" class="fw-bold bg-secondary text-black">ລວມທັງໝົດ:&nbsp;&nbsp;<?= LakLao($sum) ?></td>
+                    <td class="fw-bold bg-secondary text-black text-end"><?= number_format($sum) ?></td>
 
                 </tr>
             </tbody>
