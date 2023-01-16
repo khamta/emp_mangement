@@ -27,6 +27,16 @@ if (isset($_GET['department'])) {
     <script src="js/sweetalert.min.js"></script>
     <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td,
+        th,tr {
+            border: 1px black solid;
+            height: 35px;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,7 +45,7 @@ if (isset($_GET['department'])) {
             <img src="image/123.jpg" width="100px" alt="ຮູບກາຊາດ"><br>
             ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ<br>
             ສັນຕິພາບ ເອກະລາດ ປະຊາທິປະໄຕ ເອກະພາບ ວັດທະນະຖາວອນ
-            <p>----------<?php for($i=0 ; $i<= 5 ; $i++) echo '<i class="far fa-star"></i>';?>----------</p>
+            <p>----------<?php for ($i = 0; $i <= 5; $i++) echo '<i class="far fa-star"></i>'; ?>----------</p>
 
         </div>
         <div class="row">
