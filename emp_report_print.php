@@ -31,8 +31,10 @@ if (isset($_GET['department'])) {
         table {
             border-collapse: collapse;
         }
+
         td,
-        th,tr {
+        th,
+        tr {
             border: 1px black solid;
             height: 35px;
         }
@@ -115,6 +117,13 @@ if (isset($_GET['department'])) {
                 </tr>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-3 fw-bold text-end">ຜູ້ອຳນວຍການ</div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3 fw-bold">ຜູ້ສະຫຼຸບລາຍງານ</div>
+
+        </div>
     </div>
 </body>
 
