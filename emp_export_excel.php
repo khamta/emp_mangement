@@ -31,7 +31,7 @@ if ($_GET['department'] !== "") {
 
 $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-    $lineData = array($row['emp_ID'], $row['name'], $row['gender'], $row['salary'], $row['incentive'], $row['total'], $row['department']);
+    $lineData = array($row['emp_ID'], $row['emp_name'], $row['gender'], $row['salary'], $row['incentive'], $row['total'], $row['department']);
     array_walk($lineData, 'filterData');
     $excelData .= implode("\t", array_values($lineData)) . "\n";
 }
