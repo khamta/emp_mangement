@@ -21,6 +21,16 @@ include_once 'login_check.php';
 
     <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        .active2 {
+            background: black;
+            border-radius: 10px;
+        }
+        .active22 {
+            background: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>

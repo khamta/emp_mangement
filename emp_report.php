@@ -27,6 +27,16 @@ if (isset($_GET['department'])) {
     <script src="js/sweetalert.min.js"></script>
     <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        .active3 {
+            background: black;
+            border-radius: 10px;
+        }
+        .active33 {
+            background: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>

@@ -51,6 +51,16 @@ if (empty($error_username) && empty($error_password)){
 <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
+    <style>
+        .active4 {
+            background: black;
+            border-radius: 10px;
+        }
+        .active44 {
+            background: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <?php include_once 'menu.php'; 

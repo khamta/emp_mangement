@@ -13,6 +13,16 @@ include_once 'login_check.php'
     <link rel="stylesheet" href="myCSS/style.css">
 <link rel="icon" href="image/002.jpg">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+        .active4 {
+            background: black;
+            border-radius: 10px;
+        }
+        .active45 {
+            background: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <?php include_once 'menu.php'; ?>

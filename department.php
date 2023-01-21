@@ -70,6 +70,16 @@ if (isset($_POST['btnAdd'])) {
     <script src="js/jquery.priceformat.min.js"></script>
     <script src="js/dataTables.bootstrap5.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
+    <style>
+        .active2 {
+            background: black;
+            border-radius: 10px;
+        }
+        .active23 {
+            background: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
